@@ -2,12 +2,10 @@
 
 A bright spacious theme for [TaskPaper 3](http://taskpaper.com) 
 
-![TaskPaper Shiny Theme](http://adrianlogue.github.io/images/taskpaper-shiny-screenshot.png "TaskPaper Shiny Theme")
-
 ## Features
 
 - Generous spacing & line heights
-- Nice powder blue tint colour
+- Nice taskpaper red-ish tint colour
 - Subtle collapse/expand handles
 - Subtle treatment for notes
 - Dotted line for @done items
@@ -20,7 +18,5 @@ A bright spacious theme for [TaskPaper 3](http://taskpaper.com)
 
 ## Todo
 
-- Replace default hyphen bullets with something more interesting (maybe checkboxes)
-- Work on the alignment of notes so they line up with the indentation level of their parent
-- Perhaps some additional colors for common tags
+- Create screenshot for this actual mod of the theme
 
