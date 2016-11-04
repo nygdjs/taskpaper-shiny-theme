@@ -2,7 +2,13 @@
 @user-font-size: 18;
 
 // UI Colors
-@tint-color: #51b9db;
+@taskpaper-red: rgb(229, 45, 45);
+@yellow: lighten(hsl(44, 85%, 52%), 10%);
+@blue: lighten(hsl(196, 100%, 47%), 10%);
+
+@tint-color: @taskpaper-red;
+@tint-color--positive: spin(@tint-color, 80);
+
 
 // Base text
 @text-color: #444;
@@ -12,7 +18,7 @@
 
 editor {
 	guide-line-color: #fff;
-	item-indent: 40px * @ui-scale;
+	item-indent: 20px * @ui-scale;
 }
 
 item {
@@ -41,6 +47,26 @@ item[data-done] {
 	> run[link^="button"] {
 		color: mix(@text-color, @background-color, 35%);
 	}
+}
+
+item[data-critical] {
+	color: mix(@text-color, @tint-color, 15%);
+}
+
+run[tag=data-na] {
+	color: @tint-color--positive;
+}
+
+run[tag=data-today] {
+	color: mix(@text-color, @tint-color, 15%);
+}
+
+run[tag=data-bissell] {
+	color: @blue;
+}
+
+run[tag=data-whirlpool] {
+	color: @yellow;
 }
 
 item[leaf] {
