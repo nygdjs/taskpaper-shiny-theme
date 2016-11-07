@@ -3,10 +3,10 @@
 
 // UI Colors
 @taskpaper-red: rgb(229, 45, 45);
-@yellow: lighten(hsl(44, 85%, 52%), 10%);
-@blue: lighten(hsl(196, 100%, 47%), 10%);
+@whirlpool-yellow: lighten(hsl(44, 85%, 52%), 10%);
+@bissell-blue: lighten(hsl(196, 100%, 47%), 10%);
 
-@tint-color: @taskpaper-red;
+@tint-color: lighten(@taskpaper-red, 8%);
 @tint-color--positive: spin(@tint-color, 80);
 
 
@@ -17,60 +17,73 @@
 @line-height-multiple: 1.3;
 
 editor {
-	guide-line-color: #fff;
-	item-indent: 20px * @ui-scale;
+  guide-line-color: #fff;
+  item-indent: 20px * @ui-scale;
 }
 
 item {
-	handle-border-color: mix(@tint-color, @background-color, 20%);
+  handle-border-color: mix(@tint-color, @background-color, 20%);
 }
 
 item[data-type="note"] {
-	font-style: normal;
-	color: mix(@text-color, @background-color, 35%);
-	font-size: 16px;
+  font-style: normal;
+  color: mix(@text-color, @background-color, 35%);
+  font-size: 16px;
 }
 
 item[data-type="project"] {
-	font-weight: bold;
-	color: @tint-color;
-	font-size: 22px;
-	line-height-multiple: 2.5;
+  font-weight: bold;
+  color: @tint-color;
+  font-size: 22px;
+  line-height-multiple: 1.8;
 }
 
-item[data-done] {
-	color: mix(@text-color, @background-color, 35%);
-	> run[content] {
-		text-strikethrough: NSUnderlineStyleThick NSUnderlinePatternDot;
-      	text-strikethrough-color: mix(@text-color, @background-color, 65%);
-    }
-	> run[link^="button"] {
-		color: mix(@text-color, @background-color, 35%);
-	}
+/*Smaller font-size for the second-level projects*/
+item[depth=2][data-type=project] {
+  font-size: 20px;
 }
 
-item[data-critical] {
-	color: mix(@text-color, @tint-color, 15%);
+/*For critical elements both the element and the tag are coloured*/
+item[data-critical],
+run[tag=data-critical] {
+  color: mix(@text-color, @tint-color, 15%);
 }
 
-run[tag=data-na] {
-	color: @tint-color--positive;
+/*Subtle gray for the on-hold elements*/
+item[data-on-hold] {
+  color: lighten(@text-color, 25%);
+}
+
+/*Colorize some tags*/
+run[tag=data-next-action] {
+  color: @tint-color--positive;
 }
 
 run[tag=data-today] {
-	color: mix(@text-color, @tint-color, 15%);
+  color: mix(@text-color, @tint-color, 15%);
 }
 
 run[tag=data-bissell] {
-	color: @blue;
+  color: @bissell-blue;
 }
 
 run[tag=data-whirlpool] {
-	color: @yellow;
+  color: @whirlpool-yellow;
+}
+
+item[data-done] {
+  color: mix(@text-color, @background-color, 35%);
+  > run[content] {
+    /*text-strikethrough: NSUnderlineStyleThick NSUnderlinePatternDot;*/
+      text-strikethrough-color: mix(@text-color, @background-color, 35%);
+  }
+  > run[link^="button"] {
+    color: mix(@text-color, @background-color, 35%);
+  }
 }
 
 item[leaf] {
-	handle-border-color: none;
+  handle-border-color: none;
 }
 
 item[collapsed] {
@@ -79,9 +92,9 @@ item[collapsed] {
 }
 
 run[link^="button"] {
-	color: @tint-color;
+  color: @tint-color;
 }
 
 run[tag] {
-  font-size: 12px;
+  font-size: 14px;
 }
